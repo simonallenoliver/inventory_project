@@ -1,0 +1,35 @@
+*{
+    background-image: ;
+    background-size: cover;
+    background-position: center;
+    margin: 20px;
+}
+
+.center{
+    text-align: center;
+}
+
+.wholepage{
+    background-color: blueviolet;
+    margin: 20px;
+    padding: 20px;
+}
+
+.bigbox{
+    background-color: chartreuse;
+    margin: 20px;
+    padding: 20px;
+}
+
+.row{
+    display: flex;
+}
+
+.col1{
+    background-color: beige;
+flex: 1;
+}
+.col2{
+    background-color: rgb(130, 130, 98);
+flex: 2;
+}
