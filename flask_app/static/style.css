@@ -5,8 +5,8 @@
 
 .titlebox {
     text-align: center;
-    padding-top: 100px;
-    padding-bottom: 50px;
+    padding-top: 190px;
+
 }
 
 #title {
@@ -14,9 +14,23 @@
     color: tan;
 }
 
-.choose {
-    font-size: 80px;
+#begin{
+    text-decoration: none;
+    font-size: 30pt;
+    font-family: Quattrocento;
     color: white;
+}
+
+.glow:hover {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+
+.choose {
+    font-size: 60px;
+    color: white;
+    font-family: quattrocento;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 .pic {
@@ -24,6 +38,10 @@
     height: 250px;
     margin: 10px;
     margin-left: 15px;
+}
+
+.describe{
+    font-size: 28pt;
 }
 
 .narrate {
@@ -68,6 +86,7 @@
 
 .wholepage {
     background-color: black;
+    height: 745px;
 
 }
 
@@ -87,6 +106,10 @@
     margin-right: 20px;
     border: 10px solid black;
     border-radius: 50%;
+}
+
+#sidname{
+    font-size: 35pt;
 }
 
 .col2 {

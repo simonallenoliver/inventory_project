@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>title screen</title>
+    <title>choose</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -21,14 +21,24 @@
 
     <div class="wholepage">
 
-        <div class="titlebox">
-            <h1 id="title">SAND</h1>
-        </div>
 
         <div>
-            <h2 class="center"><a id="begin" class="glow" href="/choose">BEGIN</a></h2>
+            <h2 class="center choose">Choose Your Character</h2>
         </div>
 
+        <div class="roww">
+
+            <div class="col1">
+                <img class="pic" src="../static/images/sid.png" alt="sidpic">
+            </div>
+
+            <div class="col2">
+                <p id="sidname">{{sid.name}}</p>
+                <p class="describe">{{sid.description}}</p>
+                <p ><a class="choose_button" href="/start/1">PICK SID</a></p>
+            </div>
+
+        </div>
 
     </div>
 

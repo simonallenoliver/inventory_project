@@ -45,21 +45,6 @@ class Inventory:
         return inventory_row
     
 
-    
-    @classmethod
-    def buy(cls, id, character_id):
-
-        data = {
-            "id":id,
-            "character_id":character_id,
-        }
-
-        query = """
-            UPDATE inventories
-            SET character_id = %(character_id)s
-            WHERE id = %(id)s
-        """
-        connectToMySQL(DB).query_db(query, data)
 
 
     @classmethod
@@ -103,6 +88,42 @@ class Inventory:
         query = """
             UPDATE characters
             SET coins = %(seller_new_coins)s
+            WHERE id = 1
+        """
+        connectToMySQL(DB).query_db(query, data3)
+
+    @classmethod
+    def buy(cls, id, buyer_new_coins, seller_new_coins):
+
+        data = {
+            "id":id,
+        }
+
+        query = """
+            UPDATE inventories
+            SET character_id = 1 
+            WHERE id = %(id)s;
+        """
+        connectToMySQL(DB).query_db(query, data)
+
+        data2 = {
+            "seller_new_coins":seller_new_coins
+        }
+
+        query = """
+            UPDATE characters
+            SET coins = %(seller_new_coins)s
+            WHERE id = 4;
+        """
+        connectToMySQL(DB).query_db(query, data2)
+
+        data3 = {
+            "buyer_new_coins":buyer_new_coins
+        }
+
+        query = """
+            UPDATE characters
+            SET coins = %(buyer_new_coins)s
             WHERE id = 1
         """
         connectToMySQL(DB).query_db(query, data3)
