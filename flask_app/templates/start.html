@@ -8,52 +8,63 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cantarell:ital@1&family=Nanum+Brush+Script&family=Quattrocento&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <div class="viewsquare">
-        <div>
-            <h3 class="center">Your adventure begins, {{current_character.name}}! You prepare to depart your humble
-                village with nothing but the clothes
-                on your back and a small knapsack filled with two day's provisions and the family heirloom: a copper
-                broach.
+        <div class="narratebox">
+            <h3 class="center narrate">Your adventure begins, {{current_character.name}}! You prepare to depart your humble desert
+                village with nothing but the clothes on your back, a good luck charm from your dead mum, and a small knapsack
+                 filled with two day's provisions.
             </h3>
         </div>
-        <br><br>
-        <div>
-            <h1>YOUR INVENTORY</h1>
-            <table class="table">
-                <tr>
-                    <th>Item</th>
-                    <th>Value</th>
-                    <th>Actions</th>
-                </tr>
-                {% for item in current_inventory %}
-                <tr>
-                    <td>{{item.item}}</td>
-                    <td>{{item.price}}</td>
-                    <td><a href="/sell/{{item.id}}">SELL</a></td>
-                </tr>
-                {% endfor %}
 
-            </table>
-        </div>
-        <br><br>
-        <div>
-            <h1>RITA'S FINE GOODS</h1>
-            <table class="table">
-                <tr>
-                    <th>Item</th>
-                    <th>Price</th>
-                    <th>Actions</th>
-                </tr>
-                {% for item in rita %}
-                <tr>
-                    <td>{{item.item}}</td>
-                    <td>{{item.price}}</td>
-                    <td><a href="/buy/{{item.id}}">BUY</a></td>
-                </tr>
-                {% endfor %}
+        <div class="boxes">
+
+            <div class="inventory">
+                <h1 class="center">SID</h1>
+                <h2>Coins: {{current_character.coins}}</h2>
+                <table class="table">
+                    <tr>
+                        <th>Item</th>
+                        <th>Value</th>
+                        <th>Actions</th>
+                    </tr>
+                    {% for item in current_inventory %}
+                    <tr>
+                        <td>{{item.item}}</td>
+                        <td>{{item.price}}</td>
+                        <td><a href="/sell/{{item.id}}">SELL</a></td>
+                    </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+
+            <div class="image_container"><img class="pic" src="../static/images/rita.png" alt="rita_pic"></div>
+            
+            <div class="inventory">
+                <h1 class="center">RITA</h1>
+                <h2>Coins: {{rita_character.coins}}</h2>
+                <table class="table">
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                    {% for item in rita %}
+                    <tr>
+                        <td>{{item.item}}</td>
+                        <td>{{item.price}}</td>
+                        <td><a href="/buy/{{item.id}}">BUY</a></td>
+                    </tr>
+                    {% endfor %}
+            </div>
         </div>
     </div>
 </body>

@@ -14,6 +14,23 @@ class Inventory:
 
 
     @classmethod
+    def get_one(cls, id):
+        data = {
+        "id":id
+        }
+
+        query = """
+            SELECT * FROM inventories WHERE id = %(id)s
+        """
+        results = connectToMySQL(DB).query_db(query, data)
+
+        if results:
+            row = results[0]
+            new_inventory = cls(row)
+            return new_inventory
+
+
+    @classmethod
     def get_by_character_id(cls,id):
         query = 'SELECT * FROM inventories WHERE character_id = %(id)s'
         results = connectToMySQL(DB).query_db(query,{"id" : id})
@@ -46,16 +63,46 @@ class Inventory:
 
 
     @classmethod
-    def sell(cls, id, rita_id):
+    def calculate_sale(cls, item_price, seller_coins, buyer_coins):
+        seller_new_coins = (seller_coins + item_price)
+        buyer_new_coins = (buyer_coins - item_price)
+
+        return (seller_new_coins, buyer_new_coins)
+
+
+    @classmethod
+    def sell(cls, id, rita_id, buyer_new_coins, seller_new_coins):
 
         data = {
             "id":id,
-            "rita_id":rita_id,
+            "rita_id":rita_id
         }
 
         query = """
             UPDATE inventories
-            SET character_id = %(rita_id)s
-            WHERE id = %(id)s
+            SET character_id = %(rita_id)s 
+            WHERE id = %(id)s;
         """
         connectToMySQL(DB).query_db(query, data)
+
+        data2 = {
+            "buyer_new_coins":buyer_new_coins
+        }
+
+        query = """
+            UPDATE characters
+            SET coins = %(buyer_new_coins)s
+            WHERE id = 4;
+        """
+        connectToMySQL(DB).query_db(query, data2)
+
+        data3 = {
+            "seller_new_coins":seller_new_coins
+        }
+
+        query = """
+            UPDATE characters
+            SET coins = %(seller_new_coins)s
+            WHERE id = 1
+        """
+        connectToMySQL(DB).query_db(query, data3)

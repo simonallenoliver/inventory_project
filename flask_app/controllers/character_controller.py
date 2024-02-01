@@ -17,12 +17,13 @@ def index():
 def start(id):
         current_character = Character.get_by_id(id)
         current_inventory = Inventory.get_by_character_id(id)
+        rita_character = Character.get_by_id(4)
         rita_inventory = Inventory.get_by_character_id(4)
         print("this is current character",current_character.name)
         print("this is inventory", current_inventory)
 
         session['character_id'] = current_character.id
-        return render_template("start.html", current_character = current_character, current_inventory = current_inventory, rita = rita_inventory)
+        return render_template("start.html", current_character = current_character, current_inventory = current_inventory, rita = rita_inventory, rita_character = rita_character)
 
 
 @app.route('/buy/<int:id>')
@@ -35,6 +36,17 @@ def buy(id):
 @app.route('/sell/<int:id>')
 def sell(id):
         rita_id = 4
-        Inventory.sell(id, rita_id)
+        sale_item = Inventory.get_one(id)
+        item_price = sale_item.price
+        character_id = session['character_id']
+        sid = Character.get_by_id(character_id)
+        seller_coins = sid.coins
+        rita = Character.get_by_id(4)
+        buyer_coins = rita.coins
+        new_coins = Inventory.calculate_sale(item_price, seller_coins, buyer_coins)
+        print("this is new coins", new_coins)
+        seller_new_coins = int(new_coins[1])
+        buyer_new_coins = int(new_coins[0])
 
+        Inventory.sell(id, rita_id, seller_new_coins, buyer_new_coins)
         return redirect('/start/1')

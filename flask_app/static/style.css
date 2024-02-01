@@ -1,35 +1,112 @@
-*{
-    background-image: ;
-    background-size: cover;
-    background-position: center;
-    margin: 20px;
+* {
+
+    font-family: Nanum Brush Script;
 }
 
-.center{
+.titlebox {
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+#title {
+    font-size: 120pt;
+    color: tan;
+}
+
+.choose {
+    font-size: 80px;
+    color: white;
+}
+
+.pic {
+    width: 250px;
+    height: 250px;
+    margin: 10px;
+    margin-left: 15px;
+}
+
+.narrate {
+    font-family: Cantarell;
+    padding-top: 80px;
+    margin-bottom: 70px;
+    width: 800px;
+}
+
+.narratebox {
+    display: flex;
+    justify-content: center;
+
+}
+
+.viewsquare {
+    background-image: url(./images/desert.jpg);
+    background-size: cover;
+    background-position: center;
+    border: 20px solid black;
+
+}
+
+.boxes {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.inventory {
+    background-color: cornsilk;
+    font-size: 18pt;
+    margin-bottom: 43px;
+    border-style: solid;
+    border-color: black;
+    border-width: 10px;
+    padding: 10px;
+}
+
+.center {
     text-align: center;
 }
 
-.wholepage{
-    background-color: blueviolet;
-    margin: 20px;
-    padding: 20px;
+.wholepage {
+    background-color: black;
+
 }
 
-.bigbox{
+.bigbox {
     background-color: chartreuse;
     margin: 20px;
     padding: 20px;
 }
 
-.row{
+.roww {
     display: flex;
+    justify-content: center;
 }
 
-.col1{
-    background-color: beige;
-flex: 1;
+.col1 {
+    background-color: lightgrey;
+    margin-right: 20px;
+    border: 10px solid black;
+    border-radius: 50%;
 }
-.col2{
-    background-color: rgb(130, 130, 98);
-flex: 2;
+
+.col2 {
+    background-color: black;
+    margin-left: 20px;
+    font-size: 20pt;
+    margin-top: 70px;
+    color: white;
+}
+
+.choose_button {
+    text-decoration: none;
+    color: yellow;
+    font-size: 20px;
+    font-family: Qauattrocento;
+}
+
+.image_container {
+    border: 5px solid black;
+    border-radius: 30px;
+    background-color: cornsilk;
+    height: 270px;
 }

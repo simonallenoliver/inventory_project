@@ -8,29 +8,44 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cantarell:ital@1&family=Nanum+Brush+Script&family=Quattrocento&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
 
-    <div>
-        <h1 class="center">CHOOSE YOUR CHARACTER</h1>
-    </div>
+
 
     <div class="wholepage">
-        <div class="bigbox">
-            <div class="row">
-                <div class="col1">
-                    <p>{{sid.name}}</p>
-                    <p><a href="/start/1">Choose Sid</a></p>
-                </div>
-                <div class="col2">
-                    <p>{{sid.description}}</p>
-                </div>
+
+        <div class="titlebox">
+            <h1 id="title">SAND</h1>
+        </div>
+
+        <div>
+            <h2 class="center choose">CHOOSE YOUR CHARACTER</h2>
+        </div>
+
+        <div class="roww">
+
+            <div class="col1">
+                <img class="pic" src="../static/images/sid.png" alt="sidpic">
+            </div>
+
+            <div class="col2">
+                <p>{{sid.name}}</p>
+                <p>{{sid.description}}</p>
+                <p ><a class="choose_button" href="/start/1">PICK SID</a></p>
             </div>
 
         </div>
+
     </div>
-    </div>
+
+
 </body>
 
 </html>
