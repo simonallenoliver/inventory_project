@@ -61,7 +61,7 @@ def buy(id):
         character_id= session['character_id']
         Inventory.buy(id, buyer_new_coins, seller_new_coins)
 
-        return redirect('/start/1')
+        return redirect('/ritas/1')
 
 @app.route('/sell/<int:id>')
 def sell(id):
@@ -77,6 +77,21 @@ def sell(id):
         print("this is new coins", new_coins)
         seller_new_coins = int(new_coins[1])
         buyer_new_coins = int(new_coins[0])
-
         Inventory.sell(id, rita_id, seller_new_coins, buyer_new_coins)
-        return redirect('/start/1')
+        return redirect('/ritas/1')
+
+
+@app.route('/travel/<int:id>')
+def travel(id):
+        current_character = Character.get_by_id(id)
+        current_inventory = Inventory.get_by_character_id(id)
+        print("this is current character",current_character.name)
+        print("this is inventory", current_inventory)
+
+        session['character_id'] = current_character.id
+        return render_template("travel.html", current_character = current_character, current_inventory = current_inventory,)
+
+@app.route('/end_session')
+def end_session():
+        session.clear()
+        return redirect("/")

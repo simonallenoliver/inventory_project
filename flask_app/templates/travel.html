@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>start</title>
+    <title>travel</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -18,14 +18,14 @@
 <body>
     <div class="viewsquare1">
         <div class="narratebox">
-            <h3 class="center narrate">Your adventure begins, {{current_character.name}}! You prepare to depart your humble desert
-                village with nothing but the clothes on your back, a good luck charm from your dead mum, and a small knapsack
-                 filled with two day's provisions.
+            <h3 class="center narrate">Onward! You've left the familiarity of your home in search of wealth
+                 (and maybe some meaning to your life). Since you have only enough provisions to survive a short trip,
+                 the next town over may be a good place to start. 
             </h3>
             
         </div>
 
-        <h2 class="center"><a id="stopby" class="glow" href="/ritas/1">Stop by Rita's market stall before you leave town... </a></h2>
+        <h2 class="center"><a href="/end_session">end session</a></h2>
 
         
     </div>

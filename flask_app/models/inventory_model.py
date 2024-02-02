@@ -1,5 +1,6 @@
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask_app import DB
+from flask import flash
 import re
 
 class Inventory:
@@ -58,6 +59,10 @@ class Inventory:
     @classmethod
     def sell(cls, id, rita_id, buyer_new_coins, seller_new_coins):
 
+        if buyer_new_coins < 0:
+                flash("Sorry I can't pay you what that's worth!", "login")
+                return
+
         data = {
             "id":id,
             "rita_id":rita_id
@@ -94,6 +99,10 @@ class Inventory:
 
     @classmethod
     def buy(cls, id, buyer_new_coins, seller_new_coins):
+
+        if buyer_new_coins < 0:
+                flash("Looks like you're coin pouch is a little light, honey.", "login")
+                return
 
         data = {
             "id":id,

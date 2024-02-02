@@ -46,7 +46,7 @@
 
 .narrate {
     font-family: Cantarell;
-    padding-top: 80px;
+    padding-top: 120px;
     margin-bottom: 70px;
     width: 800px;
 }
@@ -54,14 +54,40 @@
 .narratebox {
     display: flex;
     justify-content: center;
+}
 
+#ritanarrate{
+    background-color: cornsilk;
+    padding-top: 0;
+    margin-top: 25px;
+    border: 5px solid black;
+    border-radius: 5px;
 }
 
 .viewsquare {
+    background-image: url(./images/market.jpg);
+    background-size:cover;
+    background-position: center;
+    border: 20px solid black;
+
+}
+
+.viewsquare1 {
     background-image: url(./images/desert.jpg);
     background-size: cover;
     background-position: center;
     border: 20px solid black;
+    height: 750px;
+
+}
+
+#stopby{
+    font-family: quattrocento;
+    background-color:tan;
+    text-decoration: none;
+    color: black;
+    padding: 3px;
+    border: 2px solid black;
 
 }
 
@@ -78,6 +104,7 @@
     border-color: black;
     border-width: 10px;
     padding: 10px;
+    border-radius: 5px;
 }
 
 .center {
@@ -131,5 +158,46 @@
     border: 5px solid black;
     border-radius: 30px;
     background-color: cornsilk;
-    height: 270px;
+    height: 330px;
+}
+
+.endbox{
+    margin: 10px;
+    padding: 10px;
+}
+
+.flashmessage{
+    margin-left: 25px;
+    font-size: 12pt;
+    width: 220px;
+    font-family: cantarell;
+}
+
+.leave{
+    background-color: cornsilk;
+    width: 200px;
+    font-family: quattrocento;
+    justify-content: center;
+    border: 5px solid black;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+.justify{
+    display: flex;
+    justify-content: center;
+}
+
+
+.lilpic{
+    width: 50px;
+}
+
+.bysimon{
+    margin-top: 280px;
+    color: darkslategrey;
+    font-family: serif;
+
 }
